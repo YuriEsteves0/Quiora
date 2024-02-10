@@ -1,0 +1,19 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Quiora" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:windowBackground">@color/off_white</item>
+        <item name="android:textViewStyle">@style/CustomTextView</item>
+    </style>
+
+    <style name="CustomTextView" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/montserrat</item>
+    </style>
+
+    <style name="CustomToolbar" parent="Theme.AppCompat.NoActionBar">
+
+    </style>
+
+    <style name="Theme.Quiora" parent="Base.Theme.Quiora" />
+</resources>

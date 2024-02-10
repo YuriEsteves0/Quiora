@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "763259208143",
+    "project_id": "quiora-76ab8",
+    "storage_bucket": "quiora-76ab8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:763259208143:android:f26e3fca7deda029e552ba",
+        "android_client_info": {
+          "package_name": "com.yuri.quiora"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA78uoF7lxN2DtN_FDIOEQHvbOyDnFRO6c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

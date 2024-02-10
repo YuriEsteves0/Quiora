@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/darkBlue"
+    tools:context=".activity.MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="304dp"
+                android:layout_marginTop="112dp"
+                android:src="@drawable/group1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="268dp"
+                android:rotation="-13"
+                android:src="@drawable/group1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inputs" />
+
+            <LinearLayout
+                android:id="@+id/inputs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_borders_alternativa_bg_white"
+                android:orientation="vertical"
+                android:padding="25dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="25dp"
+                        android:src="@drawable/black_plane_1" />
+
+                    <EditText android:id="@+id/deInput"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:hint="De"
+                        android:maxLines="1"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/lightGray" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="25dp"
+                        android:rotation="180"
+                        android:src="@drawable/black_plane_1" />
+
+                    <EditText android:id="@+id/paraInput"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:hint="Para"
+                        android:maxLines="1"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/lightGray" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_marginRight="25dp"
+                        android:src="@drawable/calendar" />
+
+                    <EditText
+                        android:id="@+id/ida"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:ems="10"
+                        android:textColor="@color/black"
+                        android:maxLines="1"
+                        android:hint="Ida"
+                        android:maxLength="10"
+                        android:inputType="date"
+                        android:textColorHint="@color/lightGray" />
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_marginRight="25dp"
+                        android:src="@drawable/calendar" />
+
+                    <EditText
+                        android:id="@+id/voltaInp"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="25dp"
+                        android:ems="10"
+                        android:textColor="@color/black"
+                        android:maxLines="1"
+                        android:maxLength="10"
+                        android:hint="Volta"
+                        android:inputType="date"
+                        android:textColorHint="@color/lightGray" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                </LinearLayout>
+
+                <Button android:id="@+id/buscarVoo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:background="@drawable/rounded_all_borders_blue"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:text="BUSCAR VÔOS"
+                    android:textColor="@color/darkBlue" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/bottomLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_all_borders_shape_bg_white"
+                android:backgroundTint="@color/off_white"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/inputs"
+                android:layout_marginTop="50dp"
+                android:padding="30dp">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Minha conta"
+                    android:textColor="@color/black"
+                    android:elevation="10dp"
+                    android:background="@drawable/rounded_borders"
+                    android:backgroundTint="@color/white"
+                    android:gravity="start|center_vertical"
+                    android:layout_marginBottom="20dp"
+                    android:paddingLeft="30dp"/>
+
+                <Button android:id="@+id/btnD"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/rounded_borders"
+                    android:backgroundTint="@color/white"
+                    android:elevation="10dp"
+                    android:gravity="start|center_vertical"
+                    android:paddingLeft="30dp"
+                    android:text="Minhas viagens"
+                    android:textColor="@color/black" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Duvidas frequentes"
+                    android:textColor="@color/black"
+                    android:elevation="10dp"
+                    android:background="@drawable/rounded_borders"
+                    android:backgroundTint="@color/white"
+                    android:gravity="start|center_vertical"
+                    android:layout_marginBottom="20dp"
+                    android:paddingLeft="30dp"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Pacotes disponíveis"
+                    android:textColor="@color/black"
+                    android:elevation="10dp"
+                    android:background="@drawable/rounded_borders"
+                    android:backgroundTint="@color/white"
+                    android:gravity="start|center_vertical"
+                    android:layout_marginBottom="20dp"
+                    android:paddingLeft="30dp"/>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="200dp"
+                            android:gravity="center_horizontal"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/rounded_all_borders_shape_bg_white"
+                            android:orientation="vertical"
+                            android:padding="15dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Quem somos?"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:textColor="@color/darkBlue"/>
+
+                            <ImageView
+                                android:layout_width="200dp"
+                                android:layout_height="160dp"
+                                android:src="@drawable/mulherespelho"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Somos a Quiora, apaixonados por viagens e pela criação de experiências únicas."
+                                android:textSize="10sp"
+                                android:gravity="center"
+                                android:textColor="@color/darkBlue"/>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_gravity="end"
+                                android:layout_marginTop="10dp"
+                                android:gravity="center_vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:clickable="true"
+                                    android:textSize="10sp"
+                                    android:textColor="@color/darkBlue"
+                                    android:layout_marginRight="5dp"
+                                    android:text="Saiba mais"/>
+
+                                <ImageView
+                                    android:layout_width="16dp"
+                                    android:layout_height="16dp"
+                                    android:src="@drawable/back"
+                                    android:rotation="180"/>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout android:id="@+id/faleConoscoLayout"
+                            android:layout_width="200dp"
+                            android:clickable="true"
+                            android:layout_marginLeft="30dp"
+                            android:gravity="center_horizontal"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/rounded_all_borders_shape_bg_white"
+                            android:orientation="vertical"
+                            android:padding="15dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Fale conosco"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:textColor="@color/darkBlue"/>
+
+                            <ImageView
+                                android:layout_width="200dp"
+                                android:layout_height="160dp"
+                                android:padding="20dp"
+                                android:src="@drawable/callcenter"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Queremos saber o que você pensa! Envie-nos uma mensagem e compartilhe suas ideias conosco. Estamos ansiosos para ouvir de você!"
+                                android:textSize="10sp"
+                                android:gravity="center"
+                                android:textColor="@color/darkBlue"/>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_gravity="end"
+                                android:layout_marginTop="10dp"
+                                android:gravity="center_vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:clickable="true"
+                                    android:textSize="10sp"
+                                    android:textColor="@color/darkBlue"
+                                    android:layout_marginRight="5dp"
+                                    android:text="Entre em contato"/>
+
+                                <ImageView
+                                    android:layout_width="16dp"
+                                    android:layout_height="16dp"
+                                    android:src="@drawable/back"
+                                    android:rotation="180"/>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+
+                </HorizontalScrollView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:gravity="center"
+                android:background="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/bottomLayout">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:text="Feito por Yuri Esteves"/>
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

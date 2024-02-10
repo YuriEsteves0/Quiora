@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ConfigActivity">
+
+    <include android:id="@+id/toolbarXML" layout="@layout/toolbar"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbarXML">
+
+        <TextView android:id="@+id/configTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Configurações- Editar"
+            android:fontFamily="@font/montserrat_bold"
+            />
+
+        <EditText android:id="@+id/nomeUsu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textSize="13sp"
+            android:fontFamily="@font/montserrat_bold"
+            android:hint="Nome de usuário"/>
+
+        <EditText android:id="@+id/emailUsu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:hint="Email de usuário"/>
+
+        <EditText android:id="@+id/senhaUsu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:hint="Nova senha"/>
+
+        <Button android:id="@+id/btnAtualizar"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:text="Redefinir senha"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/rounded_borders"
+            android:backgroundTint="@color/green"
+            android:textColor="@color/white"
+            android:layout_gravity="end"
+            />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

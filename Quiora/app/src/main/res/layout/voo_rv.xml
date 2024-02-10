@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <LinearLayout android:id="@+id/layoutClickable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:clickable="true"
+        android:orientation="horizontal"
+        android:padding="15dp"
+        >
+
+        <TextView android:id="@+id/data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="9 NOV"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montserrat_bold"
+            android:textSize="18sp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:orientation="vertical">
+            <TextView android:id="@+id/lugarChegada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Paris du Nort"
+                android:fontFamily="@font/montserrat_bold"
+                android:textSize="20dp"
+                android:textColor="@color/black"/>
+            <TextView android:id="@+id/horarioSaida"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="saida: 9:30"/>
+            <TextView android:id="@+id/horarioChegada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="chegada: 10:10"/>
+        </LinearLayout>
+
+        <TextView android:id="@+id/precoVoo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="R$1000"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="20dp"
+            android:textSize="16sp"
+            android:fontFamily="@font/montserrat_bold"
+            android:textColor="@color/darkBlue"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>
