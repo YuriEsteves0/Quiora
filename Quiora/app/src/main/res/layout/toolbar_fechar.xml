@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:background="@color/cinzaFundo"
+    android:layout_height="wrap_content">
+
+    <ImageButton android:id="@+id/backChat"
+        android:layout_width="25dp"
+        android:scaleType="centerCrop"
+        android:layout_height="25dp"
+        android:src="@drawable/back_1"
+        app:tint="@color/darkBlue"
+        android:layout_centerVertical="true"
+        android:background="?attr/selectableItemBackgroundBorderless"/>
+
+    <TextView android:id="@+id/nomeUsu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NomeUsuario"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@id/backChat"
+        android:layout_marginStart="15dp"
+        android:textColor="@color/darkBlue"
+        android:fontFamily="@font/montserrat_bold"/>
+
+
+</RelativeLayout>

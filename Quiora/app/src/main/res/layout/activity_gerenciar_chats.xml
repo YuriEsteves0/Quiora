@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/off_white"
+    android:background="@color/cinzaFundo"
     tools:context=".activity.GerenciarChatsActivity">
 
     <include android:id="@+id/toolbarXML"
-        layout="@layout/toolbar"/>
+        layout="@layout/toolbar_fechar"/>
 
     <androidx.recyclerview.widget.RecyclerView android:id="@+id/recyclerView"
         app:layout_constraintTop_toBottomOf="@id/toolbarXML"

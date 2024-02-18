@@ -39,7 +39,7 @@ public class GerenciarActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 AndroidHelper helper = new AndroidHelper();
-
+                helper.TrocarIntent(getApplicationContext(), GerenciarVooActivity.class);
             }
         });
     }

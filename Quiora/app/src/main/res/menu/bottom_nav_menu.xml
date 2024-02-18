@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/Home"
+        android:title="Home"
+        android:icon="@drawable/homeapp"
+        android:iconTint="@color/white"/>
+    <item android:id="@+id/Comprar"
+        android:title="Comprar"
+        android:icon="@drawable/blackplaneapp"
+        android:iconTint="@color/cinzaFundo"/>
+    <item android:id="@+id/Pagamento"
+        android:title="Pagamento"
+        android:icon="@drawable/dollarapp"
+        android:iconTint="@color/cinzaFundo"/>
+    <item android:id="@+id/Notificacoes"
+        android:title="Notificações"
+        android:icon="@drawable/bellapp"
+        android:iconTint="@color/cinzaFundo"/>
+</menu>

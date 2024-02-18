@@ -1,7 +1,13 @@
 package com.yuri.quiora.activity.adapter;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.pdf.PdfDocument;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -23,16 +30,20 @@ import com.yuri.quiora.helper.AndroidHelper;
 import com.yuri.quiora.helper.FirebaseHelper;
 import com.yuri.quiora.model.VooModel;
 
+import java.io.File;
 import java.util.List;
 
 public class AdapterGerenciarVoo extends RecyclerView.Adapter<AdapterGerenciarVoo.MyViewHolder> {
 
     private Context context;
     private List<VooModel> vooList;
+    final static int REQUEST_CODE = 1232;
+    private Activity activity;
 
-    public AdapterGerenciarVoo(Context context, List<VooModel> vooList) {
+    public AdapterGerenciarVoo(Context context, List<VooModel> vooList, Activity activity) {
         this.context = context;
         this.vooList = vooList;
+        this.activity = activity;
     }
 
     @NonNull
@@ -54,12 +65,8 @@ public class AdapterGerenciarVoo extends RecyclerView.Adapter<AdapterGerenciarVo
         holder.verPassagensBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, ComprarVooActivity.class);
-                AndroidHelper helper = new AndroidHelper();
-                helper.passarDadosDeVooPorIntent(intent, vooModel);
-                Log.d("TAG", "onClick: " + vooModel);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(intent);
+                ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_CODE);
+                createPDF();
             }
         });
 
@@ -109,5 +116,23 @@ public class AdapterGerenciarVoo extends RecyclerView.Adapter<AdapterGerenciarVo
             verPassagensBtn = itemView.findViewById(R.id.verPassagensBtn);
             cancelarBtn = itemView.findViewById(R.id.cancelarBtn);
         }
+    }
+
+    private void createPDF(){
+        PdfDocument document = new PdfDocument();
+        PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(1080, 1920, 1).create();
+        PdfDocument.Page page = document.startPage(pageInfo);
+
+        Canvas canvas = page.getCanvas();
+        Paint paint = new Paint();
+        paint.setColor(Color.RED);
+        paint.setTextSize(42);
+        String text = "Hello, world";
+        float x = 500;
+        float y = 900;
+
+        canvas.drawText(text, x, y, paint);
+        document.finishPage(page);
+//        File download
     }
 }

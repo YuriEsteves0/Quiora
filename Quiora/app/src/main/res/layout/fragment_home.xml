@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.HomeFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+
+        android:layout_height="wrap_content">
+
+        <ViewFlipper
+            android:id="@+id/viewFlipper"
+            android:layout_width="350dp"
+            android:background="@drawable/rounded_borders_l"
+            android:backgroundTint="@color/black"
+            android:layout_centerHorizontal="true"
+            android:flipInterval="5000"
+            android:autoStart="true"
+            android:inAnimation="@android:anim/slide_in_left"
+            android:outAnimation="@android:anim/slide_out_right"
+            android:layout_height="200dp">
+
+            <!-- Primeira imagem com texto -->
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:background="@drawable/rounded_borders_l"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/paisagem"
+                    android:scaleType="centerCrop"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:text="Portugal"
+                    android:textSize="16sp"
+                    android:layout_gravity="end"
+                    android:background="#80000000"
+                    android:layout_marginTop="30dp"
+                    android:paddingStart="10dp"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:paddingEnd="10dp"
+                    android:backgroundTint="@color/white"/>
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:text="Descubra sua próxima viagem dos sonhos!"
+                    android:textColor="@color/white" />
+
+            </FrameLayout>
+
+            <!-- Segunda imagem com texto -->
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:background="@drawable/rounded_borders_l"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/paisagemdois"
+                    android:scaleType="centerCrop"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:text="Irlanda"
+                    android:textSize="16sp"
+                    android:layout_gravity="end"
+                    android:background="#80000000"
+                    android:layout_marginTop="30dp"
+                    android:paddingStart="10dp"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:paddingEnd="10dp"
+                    android:backgroundTint="@color/white"/>
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="Descubra sua próxima viagem dos sonhos!"
+                    android:textColor="@color/white" />
+
+            </FrameLayout>
+
+        </ViewFlipper>
+
+
+        <LinearLayout android:id="@+id/btns"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="35dp"
+            android:layout_below="@id/viewFlipper">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/userapp"
+                android:background="@drawable/rounded_borders_l"
+                android:backgroundTint="@color/maxdarkBlue"
+                android:padding="20dp"
+                android:layout_marginRight="30dp"
+                />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/luggageapp"
+                android:background="@drawable/rounded_borders_l"
+                android:backgroundTint="@color/maxdarkBlue"
+                android:padding="20dp"
+                android:layout_marginRight="30dp"
+                />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/questionapp"
+                android:background="@drawable/rounded_borders_l"
+                android:backgroundTint="@color/maxdarkBlue"
+                android:padding="20dp"
+                android:layout_marginRight="30dp"
+                />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/groceryapp"
+                android:background="@drawable/rounded_borders_l"
+                android:backgroundTint="@color/maxdarkBlue"
+                android:padding="20dp"
+                />
+
+        </LinearLayout>
+
+        <RelativeLayout android:id="@+id/criarContaEncl"
+            android:layout_width="350dp"
+            android:layout_below="@id/btns"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/rounded_borders_l"
+            android:backgroundTint="@color/white">
+            <TextView android:id="@+id/criarContaTit"
+                android:fontFamily="@font/montserrat_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Quer criar uma viagem?"
+                android:textColor="@color/lightBlue"/>
+
+            <TextView android:id="@+id/textoMotivador"
+                android:layout_width="wrap_content"
+                android:layout_below="@id/criarContaTit"
+                android:layout_marginTop="15dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Com uma conta Quiora MGFly você pode criar seus próprios voos e receber por isso!"
+                />
+
+            <Button android:id="@+id/criarConta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Saiba mais"
+                android:layout_below="@id/textoMotivador"
+                android:background="@drawable/rounded_borders_l"
+                android:backgroundTint="@color/lightBlue"
+                android:textColor="@color/white"
+                android:layout_marginTop="15dp"
+                android:layout_alignParentEnd="true"
+                android:fontFamily="@font/montserrat_bold"/>
+        </RelativeLayout>
+
+        <HorizontalScrollView
+            android:layout_width="350dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/criarContaEncl"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="80dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:gravity="center_horizontal"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/rounded_all_borders_shape_bg_white"
+                    android:orientation="vertical"
+                    android:padding="15dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Quem somos?"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:textColor="@color/darkBlue"/>
+
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="160dp"
+                        android:src="@drawable/mulherespelho"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Somos a Quiora, apaixonados por viagens e pela criação de experiências únicas."
+                        android:textSize="10sp"
+                        android:gravity="center"
+                        android:textColor="@color/darkBlue"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:textSize="10sp"
+                            android:textColor="@color/darkBlue"
+                            android:layout_marginRight="5dp"
+                            android:text="Saiba mais"/>
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/back"
+                            android:rotation="180"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout android:id="@+id/faleConoscoLayout"
+                    android:layout_width="200dp"
+                    android:clickable="true"
+                    android:layout_marginLeft="30dp"
+                    android:gravity="center_horizontal"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/rounded_all_borders_shape_bg_white"
+                    android:orientation="vertical"
+                    android:padding="15dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Fale conosco"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:textColor="@color/darkBlue"/>
+
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="160dp"
+                        android:padding="20dp"
+                        android:src="@drawable/callcenter"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Queremos saber o que você pensa! Envie-nos uma mensagem e compartilhe suas ideias conosco. Estamos ansiosos para ouvir de você!"
+                        android:textSize="10sp"
+                        android:gravity="center"
+                        android:textColor="@color/darkBlue"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:textSize="10sp"
+                            android:textColor="@color/darkBlue"
+                            android:layout_marginRight="5dp"
+                            android:text="Entre em contato"/>
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/back"
+                            android:rotation="180"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+    </RelativeLayout>
+
+</FrameLayout>

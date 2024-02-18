@@ -4,11 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/off_white"
+    android:background="@color/cinzaFundo"
     tools:context=".activity.ChatActivity">
 
-    <include android:id="@+id/toolbarXML"
-        layout="@layout/toolbar"/>
+    <include android:id="@+id/toolbarXML" layout="@layout/toolbar_fechar"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -16,16 +15,19 @@
         android:layout_below="@id/toolbarXML"
         android:layout_above="@id/inputEnviarMsgEncl">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
-            <TextView
+            <TextView android:id="@+id/txtAviso"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="12sp"
+                android:textSize="14sp"
+                android:layout_centerHorizontal="true"
+                android:textAlignment="center"
+                android:textColor="@color/black"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:text="Faremos o possível para responder você de forma rápida!"
@@ -34,18 +36,17 @@
             <androidx.recyclerview.widget.RecyclerView android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-
+                android:layout_below="@id/txtAviso"
                 android:layout_marginTop="20dp"/>
 
-        </LinearLayout>
+        </RelativeLayout>
     </ScrollView>
 
     <androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/inputEnviarMsgEncl"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/rounded_borders"
+        android:background="@drawable/rounded_borders_l"
         android:backgroundTint="@color/white"
         android:layout_alignParentBottom="true"
         android:padding="10dp">
@@ -53,7 +54,6 @@
         <EditText android:id="@+id/campoMsg"
             android:layout_width="300dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/enviarBtn"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_height="wrap_content"
@@ -62,18 +62,16 @@
             android:textColor="@color/black"
             android:padding="8dp"/>
 
-        <ImageButton android:id="@+id/enviarBtn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            app:tint="@color/white"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:padding="20dp"
-            android:background="@drawable/rounded_borders"
-            android:backgroundTint="@color/lightBlue"
-            android:layout_marginStart="20dp"
-            android:src="@drawable/send"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageButton android:id="@+id/enviarBtn"
+        android:layout_width="10dp"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        app:tint="@color/white"
+        android:background="@color/lightBlue"
+        android:layout_toEndOf="@id/inputEnviarMsgEncl"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/send"/>
 
 </RelativeLayout>

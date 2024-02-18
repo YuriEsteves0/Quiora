@@ -67,7 +67,7 @@ public class GerenciarVooActivity extends AppCompatActivity {
     }
 
     public void configurarAdapter(){
-        AdapterGerenciarVoo adapter = new AdapterGerenciarVoo(getApplicationContext(), vooList);
+        AdapterGerenciarVoo adapter = new AdapterGerenciarVoo(getApplicationContext(), vooList, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);

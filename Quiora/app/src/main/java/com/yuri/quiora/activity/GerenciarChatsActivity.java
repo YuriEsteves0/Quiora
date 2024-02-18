@@ -8,6 +8,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -37,7 +40,14 @@ public class GerenciarChatsActivity extends AppCompatActivity {
 
         configurarToolbar();
         configurarAdapter();
-        configurarDados();
+
+        //CRIA UMA THREAD SEPARADA PARA CARREGAR OS DADOS, FAZENDO COM QUE A INTERFACE DO USUARIO NAO TRAVE.
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                configurarDados();
+            }
+        }).start();
     }
 
     public void configurarDados(){
@@ -51,7 +61,12 @@ public class GerenciarChatsActivity extends AppCompatActivity {
 
                     usuList.add(usuariosModel);
                 }
-                adapter.notifyDataSetChanged();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        adapter.notifyDataSetChanged();
+                    }
+                });
             }
 
             @Override
@@ -69,9 +84,14 @@ public class GerenciarChatsActivity extends AppCompatActivity {
     }
 
     public void configurarToolbar(){
-        Toolbar toolbar = findViewById(R.id.ToolbarPrincipal);
-        toolbar.setTitle("Quiora");
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        TextView nomeUsu = findViewById(R.id.nomeUsu);
+        ImageButton backChat = findViewById(R.id.backChat);
+        backChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        nomeUsu.setText("Quiora");
     }
 }

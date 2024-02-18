@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -58,13 +59,21 @@ public class ChatActivity extends AppCompatActivity {
         idSalaChat = AndroidHelper.setChatRoomIdLexi(FirebaseHelper.getUserUid(), usuariosModel.getUid());
         criarSala(idSalaChat);
 
-        configurarDados();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                configurarDados();
+            }
+        }).start();
 
         enviarBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String msg = campoMsg.getText().toString();
-                enviarMsg(msg);
+                if(!msg.isEmpty()){
+                    enviarMsg(msg);
+
+                }
             }
         });
 
@@ -83,11 +92,18 @@ public class ChatActivity extends AppCompatActivity {
                     Log.d("TAG", "onDataChange: FOI ATÉ AQUI" + model.getMsg());
                     msgList.add(model);
                 }
-                adapter.notifyDataSetChanged();
-                if(!msgList.isEmpty()){
-                    recyclerView.smoothScrollToPosition(msgList.size() - 1);
 
-                }
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        adapter.notifyDataSetChanged();
+
+                        if(!msgList.isEmpty()){
+                            recyclerView.smoothScrollToPosition(msgList.size() - 1);
+
+                        }
+                    }
+                });
             }
 
             @Override
@@ -103,12 +119,15 @@ public class ChatActivity extends AppCompatActivity {
 
         String msgUid = reference.push().getKey();
 
+
+
         reference.child(idSalaChat).child("chatMsg").child(msgUid).setValue(model).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 campoMsg.setText("");
             }
         });
+
     }
 
     public void configurarAdapter(){
@@ -159,11 +178,17 @@ public class ChatActivity extends AppCompatActivity {
     }
 
     public void configurarToolbar(){
-        Toolbar toolbar = findViewById(R.id.ToolbarPrincipal);
+        TextView nomeUsu = findViewById(R.id.nomeUsu);
+        ImageButton backChat = findViewById(R.id.backChat);
         AndroidHelper helper = new AndroidHelper();
         String nomeCapitalizado = helper.formatarPrimeiraLetraMaiuscula(usuariosModel.getNome());
-        toolbar.setTitle(nomeCapitalizado);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        nomeUsu.setText(nomeCapitalizado);
+
+        backChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 }
