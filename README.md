@@ -13,6 +13,7 @@ Mesmo sendo um projeto pessoal, o Quiora é desenvolvido com seriedade e comprom
 <div align="center">
   <img src="https://github.com/YuriEsteves0/Quiora/blob/main/imgProjeto/app/QuiraLogin.png" alt="Quiora Logo">
   <img src="https://github.com/YuriEsteves0/Quiora/blob/main/imgProjeto/app/QuioraCadastro.png" alt="Quiora Logo">
+ <img src="https://github.com/YuriEsteves0/Quiora/blob/main/imgProjeto/app/QuioraPaginaInicial.png" alt="Página inicial QUIORA">
 </div>
 
 ## Licença
