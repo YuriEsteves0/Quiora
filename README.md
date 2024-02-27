@@ -18,7 +18,7 @@ Mesmo sendo um projeto pessoal, o Quiora é desenvolvido com seriedade e comprom
 
 ## Funções do Aplicativo
 
-Você pode encontrar uma descrição detalhada das funções do aplicativo no arquivo [functions.txt](https://github.com/YuriEsteves0/Quiora/blob/main/funcionalidades.txt).
+Você pode encontrar uma descrição detalhada das funções do aplicativo no arquivo [functions.txt](https://github.com/YuriEsteves0/Quiora/blob/main/funcionalidades.md).
 
 ## Licença
 
