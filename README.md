@@ -16,6 +16,10 @@ Mesmo sendo um projeto pessoal, o Quiora é desenvolvido com seriedade e comprom
  <img src="https://github.com/YuriEsteves0/Quiora/blob/main/imgProjeto/app/QuioraPaginaInicial.png" alt="Página inicial QUIORA">
 </div>
 
+## Funções do Aplicativo
+
+Você pode encontrar uma descrição detalhada das funções do aplicativo no arquivo [functions.txt](https://github.com/YuriEsteves0/Quiora/blob/main/funcionalidades.txt).
+
 ## Licença
 
 Este projeto está licenciado sob a [Licença MIT](https://opensource.org/licenses/MIT), o que significa que você pode fazer o que quiser com ele, desde que inclua a declaração de direitos autorais e a licença MIT no arquivo.
