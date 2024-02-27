@@ -46,10 +46,12 @@
 
     <ImageButton android:id="@+id/menuHamb"
         android:layout_width="wrap_content"
+        android:backgroundTint="@color/red"
         android:layout_height="wrap_content"
         android:src="@drawable/menublue"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
-        android:background="?attr/selectableItemBackgroundBorderless"/>
+        android:background="?attr/selectableItemBackgroundBorderless"
+        />
 
 </RelativeLayout>

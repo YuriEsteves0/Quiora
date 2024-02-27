@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/cardNotificacao"
+    android:background="@drawable/rounded_borders_l"
+    android:backgroundTint="@color/white"
+    android:layout_height="wrap_content"
+    android:padding="15dp">
+
+    <RelativeLayout android:id="@+id/tituloCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <TextView android:id="@+id/nomeUsuRemetente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text=""
+            android:fontFamily="@font/montserrat_bold"/>
+
+        <ImageView android:id="@+id/ImgMsgNova"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@drawable/rounded_borders"
+            android:backgroundTint="@color/red"
+            android:layout_alignParentEnd="true"/>
+
+    </RelativeLayout>
+
+    <TextView android:id="@+id/msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tituloCard"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:textColor="@color/black"
+        android:text=""/>
+
+</RelativeLayout>

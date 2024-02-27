@@ -7,139 +7,171 @@
     android:layout_height="match_parent"
     tools:context=".activity.CriarViagemActivity">
 
+    <include layout="@layout/toolbar_fechar"
+        android:id="@+id/toolbarXML"/>
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintTop_toBottomOf="@id/toolbarXML">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            >
 
-            <include android:id="@+id/toolbarXML"
-                layout="@layout/toolbar"/>
-
-
-            <LinearLayout android:id="@+id/primeiroCard"
+            <com.google.android.material.textfield.TextInputLayout android:id="@+id/inputencl1"
                 android:layout_width="350dp"
+                android:layout_centerHorizontal="true"
+                android:padding="10dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/toolbarXML"
-                android:background="@color/white"
+                android:textColorHint="@color/black"
                 android:layout_marginTop="30dp"
-                android:padding="30dp"
-                android:orientation="vertical">
-
-                <EditText android:id="@+id/partida"
+                android:background="@drawable/rounded_borders_l"
+                android:backgroundTint="@color/white">
+                <com.google.android.material.textfield.TextInputEditText android:id="@+id/origemInp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:hint="De"
-                    android:textColorHint="@color/black"/>
 
-                <EditText android:id="@+id/chegada"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:textColorHint="@color/black"
-                    android:textColor="@color/black"
-                    android:hint="Para"/>
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Origem"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText android:id="@+id/qntMax"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:inputType="numberSigned"
-                    android:textColorHint="@color/black"
-                    android:layout_marginTop="15dp"
-                    android:hint="Qnt max. de pessoas"/>
-
-            </LinearLayout>
-
-            <LinearLayout android:id="@+id/segundoCard"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/primeiroCard"
-                android:background="@color/white"
+                android:layout_centerHorizontal="true"
+                android:padding="10dp"
                 android:layout_marginTop="30dp"
-                android:padding="30dp"
-                android:orientation="vertical">
-
-                <EditText android:id="@+id/chegadaAerop"
-                    android:layout_width="match_parent"
-                    android:textColorHint="@color/black"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:maxLength="5"
-                    android:hint="Chegada prevista (avião)"/>
-
-                <EditText android:id="@+id/saidaAerop"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/black"
+                android:background="@drawable/rounded_borders_l"
+                android:backgroundTint="@color/white">
+                <com.google.android.material.textfield.TextInputEditText android:id="@+id/destinoInp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
                     android:textColor="@color/black"
-                    android:textColorHint="@color/black"
-                    android:maxLength="5"
-                    android:layout_marginTop="15dp"
-                    android:hint="Saida prevista (avião)"/>
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Destino"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText android:id="@+id/dataChegada"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/black"
-                    android:layout_marginTop="15dp"
-                    android:hint="Data viagem"/>
-
-            </LinearLayout>
-
-            <LinearLayout android:id="@+id/terceiroCard"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/segundoCard"
-                android:background="@color/white"
+                android:layout_centerHorizontal="true"
+                android:padding="10dp"
                 android:layout_marginTop="30dp"
-                android:padding="30dp"
-                android:orientation="vertical">
-
-                <EditText android:id="@+id/precoVoo"
+                android:textColorHint="@color/black"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_borders_l"
+                android:backgroundTint="@color/white">
+                <com.google.android.material.textfield.TextInputEditText android:id="@+id/qntPessoasInp"
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:inputType="numberDecimal"
+                    android:textColorHint="@color/black"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Qnt max. Pessoas"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="350dp"
+                android:layout_centerHorizontal="true"
+                android:padding="10dp"
+                android:layout_marginTop="30dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_borders_l"
+                android:textColorHint="@color/black"
+                android:backgroundTint="@color/white">
+                <com.google.android.material.textfield.TextInputEditText android:id="@+id/horarioChegadaInp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:textColorHint="@color/black"
+                    android:textColor="@color/black"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Horario chega avião (aproximada)"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="350dp"
+                android:layout_centerHorizontal="true"
+                android:padding="10dp"
+                android:textColorHint="@color/black"
+                android:layout_marginTop="30dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_borders_l"
+                android:backgroundTint="@color/white">
+                <com.google.android.material.textfield.TextInputEditText android:id="@+id/horarioSaidaInp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/black"
+                    android:layout_marginEnd="10dp"
+                    android:textColorHint="@color/black"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Horario saida avião (aproximada)"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="350dp"
+                android:layout_centerHorizontal="true"
+                android:padding="10dp"
+                android:layout_marginTop="30dp"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
+                android:background="@drawable/rounded_borders_l"
+                android:backgroundTint="@color/white">
+                <com.google.android.material.textfield.TextInputEditText android:id="@+id/dataViagemInp"
+                    android:layout_width="match_parent"
                     android:textColorHint="@color/black"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Data da viagem"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="350dp"
+                android:layout_centerHorizontal="true"
+                android:textColorHint="@color/black"
+                android:padding="10dp"
+                android:layout_marginTop="30dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_borders_l"
+                android:backgroundTint="@color/white">
+                <com.google.android.material.textfield.TextInputEditText android:id="@+id/precoInp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:textColorHint="@color/black"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="10dp"
                     android:hint="Preço"/>
-
-            </LinearLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Button android:id="@+id/btnAdd"
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                android:background="@drawable/btn_pressed_animation"
-                android:text="Adicionar"
+                android:hint="ADICIONAR"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="80dp"
+                android:background="@drawable/rounded_borders_l"
+                android:backgroundTint="@color/darkBlue"
                 android:textColor="@color/white"
-                android:layout_marginTop="30dp"
-                app:layout_constraintTop_toBottomOf="@id/terceiroCard"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:gravity="center"
-                android:background="@color/black"
-                android:layout_marginTop="30dp"
-                app:layout_constraintTop_toBottomOf="@id/btnAdd">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:text="Feito por Yuri Esteves"/>
-            </LinearLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                />
+        </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

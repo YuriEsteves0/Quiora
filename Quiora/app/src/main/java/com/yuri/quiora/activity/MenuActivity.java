@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 import com.yuri.quiora.R;
 import com.yuri.quiora.activity.credenciais.LoginActivity;
 import com.yuri.quiora.helper.AndroidHelper;
@@ -16,7 +17,8 @@ import com.yuri.quiora.helper.FirebaseHelper;
 public class MenuActivity extends AppCompatActivity {
 
     private ImageView menuHamb, fecharMenu;
-    private Button btnSair;
+    private Button btnSair, faleConosco;
+    private DatabaseReference reference;
     private FirebaseAuth auth = FirebaseHelper.getAuth();
 
 
@@ -30,6 +32,14 @@ public class MenuActivity extends AppCompatActivity {
         btnSair = findViewById(R.id.btnSair);
         menuHamb.setVisibility(View.GONE);
         fecharMenu.setVisibility(View.VISIBLE);
+        faleConosco = findViewById(R.id.faleConosco);
+
+        faleConosco.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AndroidHelper.VerifFaleConosco(reference, auth, getApplicationContext());
+            }
+        });
 
         btnSair.setOnClickListener(new View.OnClickListener() {
             @Override

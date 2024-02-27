@@ -8,25 +8,22 @@
     tools:context=".activity.GerenciarVooActivity">
 
     <include android:id="@+id/toolbarXML"
-        layout="@layout/toolbar"/>
+        layout="@layout/toolbar_fechar"/>
+
+    <TextView android:id="@+id/msgVazio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:text="Você ainda não comprou nenhum voo"
+        android:textColor="@color/red"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarXML"/>
 
     <androidx.recyclerview.widget.RecyclerView android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/toolbarXML"/>
+        app:layout_constraintTop_toBottomOf="@id/msgVazio"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:gravity="center"
-        android:background="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:text="Feito por Yuri Esteves"/>
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

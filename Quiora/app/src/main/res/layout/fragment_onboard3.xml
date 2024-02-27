@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.fragment_onboard3">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView android:id="@+id/foto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/fotoslider3"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"/>
+
+        <TextView android:id="@+id/textoMotivador"
+            android:layout_width="350dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:text="Transforme agora a sua vida e de muitas outras pessoas, fazendo sonhos se tornarem realidades!"
+            android:layout_below="@id/foto"
+            android:layout_marginTop="10dp"
+            />
+
+        <ImageView android:id="@+id/tabs"
+            android:layout_width="62dp"
+            android:layout_height="62dp"
+            android:src="@drawable/tab3"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/textoMotivador"
+            android:layout_centerHorizontal="true"/>
+
+        <Button
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:text="Colabore"
+            android:background="@drawable/rounded_borders_l"
+            android:backgroundTint="@color/darkBlue"
+            android:textColor="@color/white"
+            android:fontFamily="@font/montserrat_bold"
+            android:layout_below="@id/tabs"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"/>
+    </RelativeLayout>
+
+</FrameLayout>

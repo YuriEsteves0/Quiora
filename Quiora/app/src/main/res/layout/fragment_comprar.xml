@@ -3,13 +3,145 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.ComprarFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="COMPRAR FRAGMENT"
-        android:gravity="center"/>
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal">
+
+            <Button android:id="@+id/idaEvolta"
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:text="Ida e volta"
+                android:backgroundTint="@color/darkBlue"
+                android:textColor="@color/white"
+                android:fontFamily="@font/montserrat_bold"
+                android:background="@drawable/comprar_voo_border_left"/>
+
+            <Button android:id="@+id/ida"
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:text="Só ida"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/montserrat_bold"
+                android:textColor="@color/darkBlue"
+                android:background="@drawable/comprar_voo_border_right"/>
+        </LinearLayout>
+
+        <TextView android:id="@+id/erro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ADICIONAREMOS ESSA FUNÇÃO NO FUTURO, APENAS A FUNÇÃO DE IDA FUNCIONA."
+            android:textColor="@color/red"
+
+            android:layout_marginTop="10dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            app:hintTextColor="@color/black"
+            android:textColorHint="@color/black"
+            >
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/origemInp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:textColor="@color/black"
+                android:background="@drawable/border_rounded_top_black"
+                android:hint="Origem"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextColor="@color/black"
+            android:textColorHint="@color/black"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/destinoInp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_rounded_bottom_black"
+                android:hint="Destino"
+                android:padding="20dp"
+                android:layout_marginTop="0dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            app:hintTextColor="@color/black"
+            android:textColorHint="@color/black"
+            >
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/idaInp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:textColor="@color/black"
+
+                android:background="@drawable/border_rounded_top_black"
+                android:hint="Ida"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hintTextColor="@color/black"
+            android:textColorHint="@color/black"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/voltaInp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_rounded_bottom_black"
+                android:hint="Volta"
+                android:padding="20dp"
+                android:layout_marginTop="0dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button android:id="@+id/procurarVooBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="procurar voos"
+            android:background="@drawable/border_black_rounded_l"
+            android:backgroundTint="@color/darkBlue"
+            android:textColor="@color/white"
+            android:layout_marginTop="30dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+
+                android:text="Dúvidas?"/>
+            <TextView android:id="@+id/faleConosco"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Fale conosco"
+                android:textColor="@color/darkBlue"/>
+        </LinearLayout>
+    </LinearLayout>
 
 </FrameLayout>

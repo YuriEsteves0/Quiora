@@ -10,6 +10,8 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -34,6 +36,7 @@ public class CriarViagemActivity extends AppCompatActivity {
     private Button btnAdd;
     private FirebaseAuth auth;
     private DatabaseReference reference;
+    private ImageButton backChat;
     private EditText partida, chegada, qntMax, chegadaAerop, saidaAerop, precoVoo, dataChegada;
 
     @Override
@@ -41,14 +44,15 @@ public class CriarViagemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_criar_viagem);
 
-        partida = findViewById(R.id.partida);
-        chegada = findViewById(R.id.chegada);
-        qntMax = findViewById(R.id.qntMax);
-        chegadaAerop = findViewById(R.id.chegadaAerop);
-        saidaAerop = findViewById(R.id.saidaAerop);
-        precoVoo = findViewById(R.id.precoVoo);
+        partida = findViewById(R.id.origemInp);
+        chegada = findViewById(R.id.destinoInp);
+        qntMax = findViewById(R.id.qntPessoasInp);
+        chegadaAerop = findViewById(R.id.horarioChegadaInp);
+        saidaAerop = findViewById(R.id.horarioSaidaInp);
+        precoVoo = findViewById(R.id.precoInp);
         btnAdd = findViewById(R.id.btnAdd);
-        dataChegada = findViewById(R.id.dataChegada);
+        dataChegada = findViewById(R.id.dataViagemInp);
+        backChat = findViewById(R.id.backChat);
 
         configurarFormatoData(dataChegada);
         configurarFormatoHorario(chegadaAerop);
@@ -95,10 +99,14 @@ public class CriarViagemActivity extends AppCompatActivity {
             }
         });
 
-        Toolbar toolbar = findViewById(R.id.ToolbarPrincipal);
-        toolbar.setTitle("Quiora");
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        TextView nomeUsu = findViewById(R.id.nomeUsu);
+        nomeUsu.setText("Criar viagem");
+        backChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private void configurarFormatoHorario(EditText campoHorario) {

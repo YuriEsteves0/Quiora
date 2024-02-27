@@ -76,40 +76,7 @@ public class MainActivity extends AppCompatActivity {
         faleConoscoAtendente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AndroidHelper helper = new AndroidHelper();
-
-                String uidUsu = FirebaseHelper.getUserUid();
-
-                reference = FirebaseHelper.getReferenceUsuarios();
-
-                reference.child("RgXBfjdRPteRNyXyG6d9KS7Szff1").addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.exists()){
-                            UsuariosModel model = snapshot.getValue(UsuariosModel.class);
-
-                            Log.d("CHECKQUIORA", "onDataChange: " + model.getUid() + " " + model.getNome() + " " + auth.getCurrentUser().getUid());
-                            if(auth.getCurrentUser().getUid().equals("RgXBfjdRPteRNyXyG6d9KS7Szff1")){
-                                helper.TrocarIntent(getApplicationContext(), GerenciarChatsActivity.class);
-                            }else{
-                                UsuariosModel usuariosModel = new UsuariosModel();
-                                usuariosModel.setUid("RgXBfjdRPteRNyXyG6d9KS7Szff1");
-                                usuariosModel.setNome("atendimentoQuiora");
-                                usuariosModel.setEmail("atendimentoQuiora@gmail.com");
-
-                                Intent intent = new Intent(getApplicationContext(), ChatActivity.class);
-                                helper.passarDadosDeUmUsuarioPorIntent(intent, usuariosModel);
-                                startActivity(intent);
-                            }
-
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-                        error.getMessage();
-                    }
-                });
+                AndroidHelper.VerifFaleConosco(reference, auth, getApplicationContext());
             }
         });
 

@@ -5,10 +5,22 @@
     android:layout_height="match_parent"
     tools:context=".fragments.NotificacoesFragment">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="NOTIFICAÇÕES FRAGMENT"
-        android:gravity="center"/>
+        android:layout_height="wrap_content">
+        <TextView android:id="@+id/noNotifications"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adicionaremos essa função no futuro."
+            android:textColor="@color/red"
+            android:layout_centerHorizontal="true"
+            />
 
+        <androidx.recyclerview.widget.RecyclerView android:id="@+id/recyclerView"
+            android:layout_width="350dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/noNotifications"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
 </FrameLayout>

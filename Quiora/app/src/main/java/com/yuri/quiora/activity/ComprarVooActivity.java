@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -33,8 +34,10 @@ public class ComprarVooActivity extends AppCompatActivity {
     private AndroidHelper helper = new AndroidHelper();
     private DatabaseReference reference;
     private Long qntPassageirosSuportado;
+    private TextView nomeUsu;
     private Long qntPassageirosAtual;
     private String uidUsu;
+    private ImageButton backChat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +47,9 @@ public class ComprarVooActivity extends AppCompatActivity {
         btnComprar = findViewById(R.id.idComprar);
         nomeLugar = findViewById(R.id.nomeLugar);
         dataViagem = findViewById(R.id.dataViagem);
+        nomeUsu = findViewById(R.id.nomeUsu);
         saidaAviao = findViewById(R.id.saidaAviao);
+        backChat = findViewById(R.id.backChat);
         chegadaDestino = findViewById(R.id.chegadaDestino);
         nomeComp = findViewById(R.id.nomeComp);
         preco = findViewById(R.id.preco);
@@ -53,7 +58,14 @@ public class ComprarVooActivity extends AppCompatActivity {
         receberDadosIntent();
         configurarDados();
 
-        AndroidHelper.configurarToolbar(this);
+        AndroidHelper.configurarToolbarFechar("Comprar Passagens", nomeUsu);
+
+        backChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         btnComprar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,6 +101,7 @@ public class ComprarVooActivity extends AppCompatActivity {
 
                                 uidUsu = FirebaseHelper.getUserUid();
                                 helper.MostrarToast(getApplicationContext(), "Passagem comprada com sucesso!");
+                                finish();
 
                                 qntPassageirosAtualRef.child(uidUsu).child("uid").setValue(uidUsu);
                             }else{

@@ -68,19 +68,24 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    public void entrar(String email, String senha){
-        auth.signInWithEmailAndPassword(email, senha).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
-                    AndroidHelper helper = new AndroidHelper();
-                    helper.TrocarIntent(getApplicationContext(), MainActivity.class);
-                    finish();
-                }else{
-                    AndroidHelper helper = new AndroidHelper();
-                    helper.MostrarToast(getApplicationContext(), "Usuário não encontrado, faça cadastro");
+    public void entrar(String email, String senha) {
+        if (AndroidHelper.verifInternet(getApplicationContext())) {
+            auth.signInWithEmailAndPassword(email, senha).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        AndroidHelper helper = new AndroidHelper();
+                        helper.TrocarIntent(getApplicationContext(), MainActivity.class);
+                        finish();
+                    } else {
+                        AndroidHelper helper = new AndroidHelper();
+                        helper.MostrarToast(getApplicationContext(), "Usuário não encontrado, faça cadastro");
+                    }
                 }
-            }
-        });
+            });
+        }else{
+            AndroidHelper helper = new AndroidHelper();
+            helper.MostrarToast(getApplicationContext(), "SEM ACESSO À INTERNET");
+        }
     }
 }

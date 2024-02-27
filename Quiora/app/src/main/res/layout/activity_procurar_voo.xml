@@ -4,76 +4,133 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/off_white"
+    android:background="@color/cinzaFundo"
     tools:context=".activity.ProcurarVooActivity">
 
     <include android:id="@+id/toolbarXML"
-        layout="@layout/toolbar"/>
+        layout="@layout/toolbar_fechar"/>
 
-    <LinearLayout android:id="@+id/topo"
-        android:layout_width="match_parent"
+    <RelativeLayout android:id="@+id/infoBusca"
+        android:layout_width="350dp"
+        android:layout_marginTop="15dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/rounded_borders_l"
+        android:backgroundTint="@color/lightBlue"
         app:layout_constraintTop_toBottomOf="@id/toolbarXML"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:padding="30dp"
-        android:gravity="center_vertical|center"
-        android:orientation="horizontal">
+        android:padding="15dp"
+        >
 
-        <TextView android:id="@+id/de"
-            android:layout_width="100dp"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_bold"
-            android:text="Partida"
-            android:textColor="@color/black"
-            android:textAlignment="center"
-            android:textSize="18sp"/>
-
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="15/02/2024 (Ida)"
+                android:textColor="@color/white"
+                android:fontFamily="@font/montserrat_bold"/>
+            <TextView android:id="@+id/origem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rio de janeiro"
+                android:textColor="@color/white"
+                android:layout_gravity="center_horizontal"/>
+        </LinearLayout>
         <ImageView
-            android:layout_width="25sp"
-            android:layout_height="25sp"
-            android:src="@drawable/back_1"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
             android:rotation="180"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"/>
+            app:tint="@color/darkBlue"
+            android:layout_centerInParent="true"
+            android:src="@drawable/back_1"/>
 
-        <TextView android:id="@+id/para"
-            android:layout_width="100dp"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_bold"
-            android:text="Chegada"
+            android:orientation="vertical"
+            android:layout_alignParentEnd="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="15/02/2024 (Volta)"
+                android:textColor="@color/darkBlue"
+                android:fontFamily="@font/montserrat_bold"/>
+            <TextView android:id="@+id/destino"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rio de janeiro"
+                android:textColor="@color/darkBlue"
+                android:layout_gravity="center_horizontal"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout android:id="@+id/infoIdaVolta"
+        android:layout_width="350dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@id/infoBusca"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:textAlignment="center"
-            android:textSize="18sp"/>
+            android:text="Escolha um"/>
+        <TextView
+            android:id="@+id/tipoVoo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" voo de ida"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montserrat_bold"/>
     </LinearLayout>
 
+
     <ScrollView android:id="@+id/scrollView"
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/topo">
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@id/infoIdaVolta">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
         <androidx.recyclerview.widget.RecyclerView android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
 
-    </ScrollView>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/recyclerView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Duvidas?"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/montserrat_bold"
+                    />
+                <TextView
+                    android:id="@+id/faleConoscoTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" Entre em contato conosco"
+                    android:textColor="@color/darkBlue"
+                    android:fontFamily="@font/montserrat_bold"/>
+            </LinearLayout>
+        </RelativeLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:background="@color/black">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Feito por Yuri Esteves"
-            android:textColor="@color/white"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

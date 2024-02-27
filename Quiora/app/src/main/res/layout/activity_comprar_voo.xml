@@ -8,7 +8,7 @@
     tools:context=".activity.ComprarVooActivity">
 
     <include android:id="@+id/toolbarXML"
-        layout="@layout/toolbar"/>
+        layout="@layout/toolbar_fechar"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -151,9 +151,9 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <Button android:id="@+id/idComprar"
-            android:layout_width="300dp"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/rounded_borders"
+            android:background="@drawable/rounded_borders_l"
             android:backgroundTint="@color/darkBlue"
             android:text="Comprar"
             android:layout_marginTop="10dp"

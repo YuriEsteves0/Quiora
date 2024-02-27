@@ -3,7 +3,11 @@ package com.yuri.quiora.activity.credenciais;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -52,22 +56,26 @@ public class CadastroActivity extends AppCompatActivity {
                 String senha = senhaInput.getText().toString();
                 String senha2 = senhaInput2.getText().toString();
                 if(senha.equals(senha2)){
-                    auth.createUserWithEmailAndPassword(email, senha).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful()){
+                    if(AndroidHelper.verifInternet(getApplicationContext())){
+                        auth.createUserWithEmailAndPassword(email, senha).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if(task.isSuccessful()){
 
-                                if(preferenciasCheckBox.isChecked()){
-                                    CadastrarUsuarioRealTimeDatabase(nome, email, senha);
-                                }else{
-                                    AndroidHelper helper = new AndroidHelper();
-                                    helper.MostrarToast(getApplicationContext(), "Aceite nossos termos de privacidade.");
+                                    if(preferenciasCheckBox.isChecked()){
+                                        CadastrarUsuarioRealTimeDatabase(nome, email, senha);
+                                    }else{
+                                        AndroidHelper helper = new AndroidHelper();
+                                        helper.MostrarToast(getApplicationContext(), "Aceite nossos termos de privacidade.");
+                                    }
+
                                 }
-
                             }
-                        }
-                    });
-
+                        });
+                    }else{
+                        AndroidHelper helper = new AndroidHelper();
+                        helper.MostrarToast(getApplicationContext(), "SEM ACESSO À INTERNET");
+                    }
                 }
             }
         });
@@ -81,7 +89,6 @@ public class CadastroActivity extends AppCompatActivity {
             }
         });
     }
-
     private void CadastrarUsuarioRealTimeDatabase(String nome, String email, String senha){
         UsuariosModel usuariosModel = new UsuariosModel();
         usuariosModel.setNome(nome);

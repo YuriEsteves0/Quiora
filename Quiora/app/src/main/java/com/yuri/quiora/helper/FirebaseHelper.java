@@ -13,8 +13,16 @@ public class FirebaseHelper {
         return FirebaseDatabase.getInstance().getReference();
     }
 
+    public static DatabaseReference getReferencePGDV(){
+        return getReference().child("pedidosGerente");
+    }
+
     public static DatabaseReference getChatRoomReference(){
         return getReference().child("chatRooms");
+    }
+
+    public static DatabaseReference getReferenceNotificacao(){
+        return getReference().child("notificacoes");
     }
 
     public static DatabaseReference getReferenceVoo(){

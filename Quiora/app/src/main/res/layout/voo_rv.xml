@@ -2,58 +2,98 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white">
+    android:background="@drawable/rounded_borders_l"
+    android:backgroundTint="@color/white"
+    android:clickable="true"
+    android:layout_marginBottom="15dp"
+    android:id="@+id/relativeLayout"
+    >
 
-    <LinearLayout android:id="@+id/layoutClickable"
+    <TextView android:id="@+id/economico"
+        android:layout_width="160dp"
+        android:textAlignment="center"
+        android:textSize="12sp"
+        android:background="@drawable/rounded_50_border_green"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:textColor="@color/white"
+        android:text="Recomendado"/>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:clickable="true"
-        android:orientation="horizontal"
-        android:padding="15dp"
-        >
+        android:layout_below="@id/economico"
+        android:orientation="vertical"
+        android:padding="20dp">
 
-        <TextView android:id="@+id/data"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="9 NOV"
-            android:textColor="@color/black"
-            android:fontFamily="@font/montserrat_bold"
-            android:textSize="18sp"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:orientation="vertical">
-            <TextView android:id="@+id/lugarChegada"
+            <TextView android:id="@+id/horarioIda"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Paris du Nort"
-                android:fontFamily="@font/montserrat_bold"
-                android:textSize="20dp"
-                android:textColor="@color/black"/>
-            <TextView android:id="@+id/horarioSaida"
+                android:text="00:30"
+                android:textColor="@color/black"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/montserrat_bold"/>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="saida: 9:30"/>
+                android:layout_centerHorizontal="true"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:text="Duração:"/>
+                <TextView android:id="@+id/tempoViagem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2h"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:layout_gravity="center"/>
+            </LinearLayout>
+
             <TextView android:id="@+id/horarioChegada"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="chegada: 10:10"/>
-        </LinearLayout>
+                android:text="02:30"
+                android:textColor="@color/black"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:fontFamily="@font/montserrat_bold"/>
 
-        <TextView android:id="@+id/precoVoo"
-            android:layout_width="wrap_content"
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="R$1000"
-            android:layout_gravity="bottom"
-            android:layout_marginLeft="20dp"
-            android:textSize="16sp"
-            android:fontFamily="@font/montserrat_bold"
-            android:textColor="@color/darkBlue"
-            />
+            android:layout_marginTop="10dp">
 
+            <TextView android:id="@+id/operadora"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Operado pela QUIORA"
+                android:textColor="@color/black"
+                android:layout_centerVertical="true"
+                android:textSize="10sp"/>
+
+            <TextView android:id="@+id/precoBRLVoo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BRL 600,00"
+                android:textColor="@color/green"
+                android:fontFamily="@font/montserrat_bold"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:textSize="14sp"/>
+
+        </RelativeLayout>
     </LinearLayout>
+
 
 </RelativeLayout>

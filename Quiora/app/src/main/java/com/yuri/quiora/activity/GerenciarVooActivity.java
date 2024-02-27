@@ -6,6 +6,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -29,13 +32,26 @@ public class GerenciarVooActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private DatabaseReference reference;
     private String uidUsu;
+    private TextView msgVazio;
+    private ImageButton backChat;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gerenciar_voo);
 
+        backChat = findViewById(R.id.backChat);
+        msgVazio = findViewById(R.id.msgVazio);
+
         recyclerView = findViewById(R.id.recyclerView);
+
+        backChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         configurarAdapter();
         configurarDados();
@@ -43,27 +59,51 @@ public class GerenciarVooActivity extends AppCompatActivity {
     }
 
     public void configurarDados(){
-        uidUsu = FirebaseHelper.getUserUid();
-        reference = FirebaseHelper.getReferenceVoo();
-        Query query = reference.orderByChild("Passageiros/" + uidUsu + "/uid").equalTo(uidUsu);
-
-        query.addValueEventListener(new ValueEventListener() {
+        new Thread(new Runnable() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                vooList.clear();
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    VooModel vooModel = dataSnapshot.getValue(VooModel.class);
-                    vooList.add(vooModel);
-                }
+            public void run() {
+                uidUsu = FirebaseHelper.getUserUid();
+                reference = FirebaseHelper.getReferenceVoo();
+                Query query = reference.orderByChild("Passageiros/" + uidUsu + "/uid").equalTo(uidUsu);
 
-                recyclerView.getAdapter().notifyDataSetChanged();
+                query.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        vooList.clear();
+                        if (snapshot.getChildrenCount() == 0){
+                            //CRIAR UMA NOVA THREAD E MUDAR A THREAD PRINCIPAL LÁ :)
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    msgVazio.setVisibility(View.VISIBLE);
+
+                                }
+                            });
+
+                        }else{
+                            for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                                VooModel vooModel = dataSnapshot.getValue(VooModel.class);
+                                vooList.add(vooModel);
+                            }
+                        }
+
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                recyclerView.getAdapter().notifyDataSetChanged();
+
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
             }
+        }).start();
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
     }
 
     public void configurarAdapter(){
@@ -74,6 +114,7 @@ public class GerenciarVooActivity extends AppCompatActivity {
     }
 
     public void configurarToolbar(){
-        AndroidHelper.configurarToolbar(this);
+        TextView nomeUsu = findViewById(R.id.nomeUsu);
+        AndroidHelper.configurarToolbarFechar("Comprar Voos", nomeUsu);
     }
 }
