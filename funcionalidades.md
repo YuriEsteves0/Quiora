@@ -5,8 +5,9 @@
 Na Quiora, existem 2 níveis de acesso: o gerente de voo e o usuário básico. Como usuário básico, você pode apenas gerenciar suas viagens compradas (cancelar e, futuramente, receber o PDF das passagens) e pesquisar por novas viagens.
 
 1. **Login**: Permite que os usuários façam login na plataforma.
+   **Caso queira fazer login com uma conta que ja tenha o o PGDV, utilize o email "gerenteVoo@gmail.com" e a senha "123123"**
 
-2. **Cadastro**: Permite que novos usuários se cadastrem na plataforma.
+3. **Cadastro**: Permite que novos usuários se cadastrem na plataforma.
    <br>**Ao se cadastrar, o usuário receberá o nível de usuário básico, sendo possível a alteração apenas por meio de uma permissão de PGDV (Permissão de Gerente De Voo).**
 
 ### Planejamento de Viagens
